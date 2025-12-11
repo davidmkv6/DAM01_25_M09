@@ -1,0 +1,232 @@
+/* --- Variables de Color (Tema Dark Red) --- */
+:root {
+    --bg-body: #0a0a0a;         /* Negro casi puro para el fondo */
+    --bg-card: #141414;         /* Gris muy oscuro para las cartas */
+    --primary-red: #d32f2f;     /* Rojo intenso */
+    --accent-red: #ff1744;      /* Rojo brillante para hovers */
+    --text-main: #ffffff;       /* Blanco puro */
+    --text-secondary: #b0b0b0;  /* Gris claro para subtítulos */
+    --border-color: #333333;    /* Bordes sutiles */
+}
+
+/* --- Reset General --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+/* --- Encabezado --- */
+.main-header {
+    background: linear-gradient(180deg, rgba(20,20,20,1) 0%, rgba(10,10,10,0) 100%);
+    padding: 3rem 1rem;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-red);
+}
+
+.main-header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    color: var(--text-main);
+    text-shadow: 2px 2px 0px var(--primary-red); /* Efecto sombra roja */
+    margin-bottom: 0.5rem;
+}
+
+.main-header h2 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.author-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    border: 1px solid var(--primary-red);
+}
+
+.author-badge .name {
+    color: var(--accent-red);
+    font-weight: 700;
+}
+
+/* --- Layout Grid --- */
+.grid-container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    display: grid;
+    /* Grid responsivo: se adapta automáticamente */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+    flex: 1;
+}
+
+/* --- Tarjeta (Card) --- */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(211, 47, 47, 0.15); /* Resplandor rojo suave */
+    border-color: var(--primary-red);
+}
+
+/* Imagen y Tag */
+.card-header {
+    position: relative;
+    height: 180px;
+    background-color: #000;
+}
+
+.card-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8; /* Imagen un poco oscura por defecto */
+    transition: opacity 0.3s;
+}
+
+.card:hover .card-header img {
+    opacity: 1; /* Imagen brilla al pasar el ratón */
+}
+
+.tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: var(--primary-red);
+    color: white;
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Cuerpo de la tarjeta */
+.card-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.card-body h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+    color: var(--text-main);
+}
+
+.card-body h4 {
+    font-size: 0.9rem;
+    color: var(--primary-red); /* Subtítulo en rojo */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.card-body p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Lista de enlaces */
+.links-list {
+    list-style: none;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.links-list li {
+    margin-bottom: 0.8rem;
+}
+
+.links-list a {
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+}
+
+.links-list a:before {
+    content: "›"; /* Flechita antes del enlace */
+    color: var(--primary-red);
+    font-weight: bold;
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.links-list a:hover {
+    color: var(--accent-red);
+    transform: translateX(5px); /* Pequeño movimiento a la derecha */
+}
+
+/* Pie de la tarjeta */
+.card-footer {
+    padding: 1rem 1.5rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-btn {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.footer-btn:hover {
+    color: var(--text-main);
+    background-color: var(--primary-red);
+}
+
+/* Botón Git específico */
+.git-btn:hover {
+    background-color: #333; /* Gris oscuro para git */
+}
+
+/* --- Footer General --- */
+.main-footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 3rem;
+    color: var(--text-secondary);
+}
+
+.main-footer a {
+    color: var(--primary-red);
+    font-weight: bold;
+}
+
+.main-footer a:hover {
+    text-decoration: underline;
+    color: var(--accent-red);
+}
