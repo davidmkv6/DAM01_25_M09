@@ -1,0 +1,47 @@
+<html>
+
+<body>
+    <script>
+        /*
+        Como lo hago:
+        Recorro el texto letra a letra.
+        Si la letra es una vocal la guardo en una variable.
+        Si no es vocal la guardo en otra.
+        Al final junto las dos partes.
+
+        Como se que funciona:
+        Si al pasar una palabra salen primero las vocales y luego las consonantes
+        y el orden se mantiene el programa está bien.
+
+        Por ejemplo:
+        "hola" pasaria a ser "oahl"
+        */
+        function separarVocalesDeConsonantes(cadena) {
+            let vocales = "";
+            let consonantes = "";
+            let conjuntoVocales = "aeiouAEIOU";
+
+            for (let i = 0; i < cadena.length; i++) {
+                let letra = cadena[i];
+
+                if (conjuntoVocales.includes(letra)) {
+                    vocales += letra;
+                } else {
+                    consonantes += letra;
+                }
+            }
+
+            return vocales + consonantes;
+        }
+        console.log(separarVocalesDeConsonantes("hola"));
+        // Deberia salir: "oahl"
+
+        console.log(separarVocalesDeConsonantes("javascript"));
+        // Deberia salir: "aaijvscrpt"
+
+        console.log(separarVocalesDeConsonantes("adios"));
+        // Deberia salir: "aiods"
+    </script>
+</body>
+
+</html>
