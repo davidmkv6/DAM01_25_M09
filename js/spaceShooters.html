@@ -20,6 +20,13 @@
       left: 50%;
       transform: translateX(-50%);
     }
+
+    .bullet {
+      position: fixed;
+      width: 6px;
+      height: 15px;
+      background: black;
+    }
   </style>
 </head>
 <body>
@@ -28,21 +35,49 @@
 
   <script>
     const ship = document.getElementById("ship");
-
     document.addEventListener("mousemove", (event) => {
       const mouseX = event.clientX;
-
       const rect = ship.getBoundingClientRect();
       const shipWidth = rect.width;
 
       let newX = mouseX - shipWidth / 2;
-
       const maxX = window.innerWidth - shipWidth;
+
       if (newX < 0) newX = 0;
       if (newX > maxX) newX = maxX;
 
       ship.style.left = `${newX}px`;
     });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.code === "Space") {
+        shoot();
+      }
+    });
+
+    function shoot() {
+      const bullet = document.createElement("div");
+      bullet.classList.add("bullet");
+      document.body.appendChild(bullet);
+
+      const shipRect = ship.getBoundingClientRect();
+
+      let x = shipRect.left + shipRect.width / 2 - 3;
+      let y = shipRect.top;
+
+      bullet.style.left = `${x}px`;
+      bullet.style.top = `${y}px`;
+
+      const interval = setInterval(() => {
+        y -= 10;
+        bullet.style.top = `${y}px`;
+
+        if (y < 0) {
+          clearInterval(interval);
+          bullet.remove();
+        }
+      }, 16);
+    }
   </script>
 
 </body>
