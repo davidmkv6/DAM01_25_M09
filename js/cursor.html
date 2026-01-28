@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Space Shooter</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    #ship {
+      position: fixed;
+      bottom: 20px;
+      width: 40px;
+      height: 40px;
+      background: red;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="ship"></div>
+
+  <script>
+    const ship = document.getElementById("ship");
+
+    document.addEventListener("mousemove", (event) => {
+      const mouseX = event.clientX;
+
+      const rect = ship.getBoundingClientRect();
+      const shipWidth = rect.width;
+
+      let newX = mouseX - shipWidth / 2;
+
+      const maxX = window.innerWidth - shipWidth;
+      if (newX < 0) newX = 0;
+      if (newX > maxX) newX = maxX;
+
+      ship.style.left = `${newX}px`;
+    });
+  </script>
+
+</body>
+</html>
