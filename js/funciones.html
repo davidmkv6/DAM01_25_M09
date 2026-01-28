@@ -1,0 +1,44 @@
+<html>
+
+<body>
+    <script>
+        function saludar(nombre, saludo = "Hola") {
+            return saludo + " " + nombre;
+        }
+        console.log(saludar("David"));
+
+        function calcular(num1, num2, operacion = "suma") {
+            let resultado;
+
+            switch (operacion) {
+                case "suma":
+                    resultado = num1 + num2;
+                    break;
+
+                case "resta":
+                    resultado = num1 - num2;
+                    break;
+
+                case "multiplicacion":
+                    resultado = num1 * num2;
+                    break;
+
+                case "division":
+                    resultado = num1 / num2;
+                    break;
+            }
+
+            return resultado;
+        }
+        console.log(calcular(5, 3));
+
+        console.log(calcular(5, 3, "resta"));
+
+        console.log(calcular(5, 3, "multiplicacion"));
+
+        console.log(calcular(10, 2, "division"));
+
+    </script>
+</body>
+
+</html>
