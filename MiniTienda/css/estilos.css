@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.titulo {
+    background-color: #2f5e1a;
+    padding: 20px;
+    text-align: center;
+}
+
+.titulo h1 {
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+body {
+    background-color: #2f5e1a;
+}
+
+
+#catalogo {
+    display: flex;
+    gap: 30px;
+    padding: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.producto {
+    background-color: #ffffff;
+    width: 260px;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.producto img {
+    width: 100%;
+    border-radius: 8px;
+    background-color: #f3f3f3;
+    padding: 10px;
+}
+
+
+.producto h3 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-top: 5px;
+}
+
+
+.producto p {
+    font-size: 12px;
+    color: #444;
+    line-height: 1.4;
+}
+
+
+.producto .precio {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2f5e1a;
+    margin-top: 5px;
+}
+
+.producto select {
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+}
+
+.producto button {
+    margin-top: auto;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #5b8f2b;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.producto button:hover {
+    background-color: #476f22;
+}
+
+.tag {
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+.tag.nuevo {
+    background-color: #ff6b3d;
+}
+
+.tag.retro {
+    background-color: #ff6b3d;
+}
+
+.tag.premium,
+.tag.edicion-especial {
+    background-color: #ff6b3d;
+}
+
+.colores {
+    margin-top: 8px;
+}
+
+.colores p {
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.color {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 6px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+.color.blanco {
+    background-color: #f5f5f5;
+}
+
+.color.negro {
+    background-color: #111;
+}
+
+.color.mostaza {
+    background-color: #f2c94c;
+}
+
+.color.gris {
+    background-color: #bdbdbd;
+}
+
+.color.azul {
+    background-color: #2f80ed;
+}
+
+.color:hover {
+    transform: scale(1.1);
+}
